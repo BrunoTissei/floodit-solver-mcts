@@ -1,14 +1,15 @@
 /**
- * FloodIt Solver MCTS
- * board.cpp
- * Purpose: Stores board and its state.
- *
- * @author Bruno Freitas Tissei
- * @version 1.0
- */
+* Copyright (c) 2018 Bruno Freitas Tissei
+*
+* Distributed under the MIT software licenser. For the full copyright and
+* license information, please view the LICENSE file distributed with this
+* source code. 
+*/
+
 #include "board.h"
 
 
+// Initializes board and define neighborhood.
 Board::Board(int n, int m, int c, bool all_neighbors) : n(n), m(m), c(c) {
   board_map = matrix<int>(n, vector<int>(m));
   group_map = matrix<int>(n, vector<int>(m));

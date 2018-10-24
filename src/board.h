@@ -1,11 +1,11 @@
 /**
- * FloodIt Solver MCTS
- * board.h
- * Purpose: Stores board and its state.
+ * Copyright (c) 2018 Bruno Freitas Tissei
  *
- * @author Bruno Freitas Tissei
- * @version 1.0
+ * Distributed under the MIT software licenser. For the full copyright and
+ * license information, please view the LICENSE file distributed with this
+ * source code. 
  */
+
 #pragma once
 
 #include <vector>
@@ -40,6 +40,13 @@ public:
   matrix<int> group_map, board_map;
 
 
+  /**
+   * Initializes board and define neighborhood.
+   *
+   * @param (n, m) size of the board.
+   * @param c number of colors
+   * @param all_neighbors whether to use 4 (false) or 8 (true) neighborhood.
+   */
   Board(int n, int m, int c, bool all_neighbors);
 
   /**

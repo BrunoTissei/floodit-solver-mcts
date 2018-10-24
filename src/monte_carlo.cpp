@@ -1,11 +1,11 @@
 /**
- * FloodIt Solver MCTS
- * monte_carlo.cpp
- * Purpose: Executes Monte Carlo Tree Search.
+ * Copyright (c) 2018 Bruno Freitas Tissei
  *
- * @author Bruno Freitas Tissei
- * @version 1.0
+ * Distributed under the MIT software licenser. For the full copyright and
+ * license information, please view the LICENSE file distributed with this
+ * source code. 
  */
+
 #include "monte_carlo.h"
 
 
@@ -49,7 +49,6 @@ void State::rollout() {
     apply_move(move);
   }
 }
-
 
 // Resets state, board and backup.
 void State::reset() {
@@ -133,6 +132,7 @@ void Node::update(double result) {
   // Sum of squared points to be used by third term of UCT
   this->sq_points += result * result;
 }
+
 
 
 // Specifies random seed and associates board to be used by state.
