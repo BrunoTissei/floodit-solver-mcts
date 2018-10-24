@@ -1,11 +1,11 @@
 /**
- * FloodIt Solver MCTS
- * graph.cpp
- * Purpose: Generic graph.
+ * Copyright (c) 2018 Bruno Freitas Tissei
  *
- * @author Bruno Freitas Tissei
- * @version 1.0
+ * Distributed under the MIT software licenser. For the full copyright and
+ * license information, please view the LICENSE file distributed with this
+ * source code. 
  */
+
 #include "graph.h"
 
 

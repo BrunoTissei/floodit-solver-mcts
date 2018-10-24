@@ -1,14 +1,15 @@
 /**
- * FloodIt Solver MCTS
- * builder.cpp
- * Purpose: Builds graph from board.
+ * Copyright (c) 2018 Bruno Freitas Tissei
  *
- * @author Bruno Freitas Tissei
- * @version 1.0
+ * Distributed under the MIT software licenser. For the full copyright and
+ * license information, please view the LICENSE file distributed with this
+ * source code. 
  */
+
 #include "builder.h"
 
 
+// Initializes builder.
 Builder::Builder(Board *board) : board(board) {
   num_groups = 1;
 }
