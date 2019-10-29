@@ -14,9 +14,6 @@
 #include "types.h"
 #include "monte_carlo.h"
 
-using namespace std;
-
-
 class Solver {
 
 private:
@@ -26,7 +23,7 @@ private:
 public:
 
   void read_input() {
-    cin >> n >> m >> c;
+    std::cin >> n >> m >> c;
   }
 
   void run() {
@@ -43,13 +40,13 @@ public:
 
     // Run Monte Carlo Search Tree
     MonteCarloTS mcts(123, &board);
-    vector<int> solution = mcts.run(35000, 4, 53);
+    std::vector<int> solution = mcts.run(35000, 4, 53);
 
     // Print solution
-    cout << solution.size() << ende;
+    std::cout << solution.size() << ende;
     for (auto i : solution)
-      cout << i << " ";
-    cout << ende;
+      std::cout << i << " ";
+    std::cout << ende;
   }
 
 };

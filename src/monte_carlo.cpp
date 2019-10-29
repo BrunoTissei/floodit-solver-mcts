@@ -140,16 +140,16 @@ MonteCarloTS::MonteCarloTS(int seed, Board *board) : board(board) {
   srand(seed);
 
   // Calculate maximum number of movements needed (i.e. upper bound) - Clifford et al.
-  int N = max(board->n, board->m);
+  int N = std::max(board->n, board->m);
   this->moves_upper = (2*N + sqrt(2 * board->c) * N + board->c);
 }
 
 
 // Applies Monte Carlo Tree Search.
-vector<int> MonteCarloTS::run(int num_iter, double C, double D) {
+std::vector<int> MonteCarloTS::run(int num_iter, double C, double D) {
   State state(board);
 
-  vector<int> best_backup;
+  std::vector<int> best_backup;
   Node *root = new Node(tuple2(-1, -1), state, nullptr, C, D);
 
   for (int iter = 0; iter < num_iter; ++iter) {

@@ -11,11 +11,11 @@
 
 // Initializes board and define neighborhood.
 Board::Board(int n, int m, int c, bool all_neighbors) : n(n), m(m), c(c) {
-  board_map = matrix<int>(n, vector<int>(m));
-  group_map = matrix<int>(n, vector<int>(m));
+  board_map = matrix<int>(n, std::vector<int>(m));
+  group_map = matrix<int>(n, std::vector<int>(m));
 
-  next_moves = vector<int>(c + 1);
-  frontier = vector<queue<int>>(c + 1, queue<int>());
+  next_moves = std::vector<int>(c + 1);
+  frontier = std::vector<std::queue<int>>(c + 1, std::queue<int>());
 
   turn = 1;
 
@@ -26,8 +26,8 @@ Board::Board(int n, int m, int c, bool all_neighbors) : n(n), m(m), c(c) {
 
   // Otherwise the dx and dy vectors are cut by half (testing purposes only)
   } else {
-    dx = vector<int>(full_dx.begin(), full_dx.begin() + 4);
-    dy = vector<int>(full_dy.begin(), full_dy.begin() + 4);
+    dx = std::vector<int>(full_dx.begin(), full_dx.begin() + 4);
+    dy = std::vector<int>(full_dy.begin(), full_dy.begin() + 4);
   }
 }
 
@@ -43,7 +43,7 @@ void Board::set_graph(Graph graph) {
 void Board::read_input() {
   for (auto &i : board_map)
     for (auto &j : i)
-      cin >> j;
+      std::cin >> j;
 }
 
 
@@ -51,7 +51,7 @@ void Board::read_input() {
 void Board::reset() {
 
   // next_moves[i] contains area yielded by color i
-  fill(next_moves.begin(), next_moves.end(), 0);
+  std::fill(next_moves.begin(), next_moves.end(), 0);
 
   // Swap turn from 1 to 2 or 2 to 1, it is used as a marker to avoid exploring
   // vertices that were already explored in this turn
@@ -74,8 +74,8 @@ void Board::reset() {
 
 // Gets possible colors to choose as the first move (i.e. colors adjacent to
 // the corner tile).
-vector<tuple2> Board::get_first_actions() {
-  vector<tuple2> actions;
+std::vector<tuple2> Board::get_first_actions() {
+  std::vector<tuple2> actions;
 
   // First moves are obtained from initial frontier state
   for (int i = 1; i <= c; ++i)
@@ -87,7 +87,7 @@ vector<tuple2> Board::get_first_actions() {
 
 
 // Allows board[i] to return board_map[i] (better readability).
-vector<int> & Board::operator[](int i) {
+std::vector<int> & Board::operator[](int i) {
   return board_map[i];
 }
 
@@ -95,7 +95,7 @@ vector<int> & Board::operator[](int i) {
 // Applies a movement (color) and returns every possible movement i where
 // i.second is the movement itself (color) and i.first is the area that the
 // movement yields.
-vector<tuple2> Board::apply_color(int color) {
+std::vector<tuple2> Board::apply_color(int color) {
 
   // Apply BFS step to frontier color only
   while (!frontier[color].empty()) {
@@ -119,12 +119,12 @@ vector<tuple2> Board::apply_color(int color) {
 
   // Build sorted vector of movements by the yielded area to be used in
   // the rollout phase
-  vector<tuple2> next;
+  std::vector<tuple2> next;
   for (int i = 1; i <= c; ++i)
     if (next_moves[i] > 0)
       next.push_back(tuple2(next_moves[i], i));
 
-  sort(next.begin(), next.end());
+  std::sort(next.begin(), next.end());
 
   return next;
 }

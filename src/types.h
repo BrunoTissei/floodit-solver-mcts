@@ -14,10 +14,7 @@
 
 #define ende '\n'
 
-using namespace std;
-
-
 template <class T>
-using matrix = vector<vector<T>>;
+using matrix = std::vector<std::vector<T>>;
 
-using tuple2 = pair<int,int>;
+using tuple2 = std::pair<int,int>;

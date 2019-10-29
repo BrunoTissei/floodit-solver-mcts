@@ -69,7 +69,7 @@ Graph Builder::build_graph() {
 
   // Build graph
   for (int i = 1; i <= num_groups; ++i) {
-    set<int> adj;
+    std::set<int> adj;
 
     // Get ids from neighbors
     for (auto j : nmap[i])

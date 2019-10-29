@@ -17,9 +17,6 @@
 #include "builder.h"
 #include "types.h"
 
-using namespace std;
-
-
 class State {
 
 private:
@@ -29,8 +26,8 @@ private:
 
 public:
 
-  vector<int> backup;
-  vector<tuple2> actions;
+  std::vector<int> backup;
+  std::vector<tuple2> actions;
 
 
   State(Board *board);
@@ -83,8 +80,8 @@ public:
   tuple2 move;
 
   Node *parent;
-  vector<Node*> children;
-  vector<tuple2> remaining_actions;
+  std::vector<Node*> children;
+  std::vector<tuple2> remaining_actions;
 
 
   /**
@@ -149,6 +146,6 @@ public:
    * @param (C, D) constants for UCT.
    * @return result (i.e. sequence of movements to solve game).
    */
-  vector<int> run(int num_iter, double C, double D);
+  std::vector<int> run(int num_iter, double C, double D);
 
 };

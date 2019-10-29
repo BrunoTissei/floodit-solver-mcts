@@ -12,15 +12,12 @@
 
 #include "types.h"
 
-using namespace std;
-
-
 /**
  * Vertex structure containing necessary metadata for MCTS
  */
 struct vertex {
   int id, color, area, marker;
-  vector<int> neighbors;
+  std::vector<int> neighbors;
 
   vertex(int i, int c, int a) : id(i), color(c), area(a), marker(0) {}
 
@@ -36,11 +33,11 @@ struct vertex {
     return neighbors[i];
   }
 
-  vector<int>::iterator begin() {
+  std::vector<int>::iterator begin() {
     return neighbors.begin();
   }
 
-  vector<int>::iterator end() {
+  std::vector<int>::iterator end() {
     return neighbors.end();
   }
 };
@@ -50,7 +47,7 @@ class Graph {
 
 private:
 
-  vector<vertex> vertices;
+  std::vector<vertex> vertices;
 
 public:
 

@@ -16,9 +16,6 @@
 #include "types.h"
 #include "graph.h"
 
-using namespace std;
-
-
 class Board {
 
 private:
@@ -27,16 +24,16 @@ private:
   Graph graph;
   bool first_move;
 
-  vector<int> next_moves;
-  const vector<int> full_dx = {0, 1,  0, -1, 1,  1, -1, -1};
-  const vector<int> full_dy = {1, 0, -1,  0, 1, -1, -1,  1};
+  std::vector<int> next_moves;
+  const std::vector<int> full_dx = {0, 1,  0, -1, 1,  1, -1, -1};
+  const std::vector<int> full_dy = {1, 0, -1,  0, 1, -1, -1,  1};
 
 public:
 
   int n, m, c;
 
-  vector<int> dx, dy;
-  vector<queue<int>> frontier;
+  std::vector<int> dx, dy;
+  std::vector<std::queue<int>> frontier;
   matrix<int> group_map, board_map;
 
 
@@ -75,7 +72,7 @@ public:
    * @return available actions (colors), where first is the area that the color
    * yields and second is the color itself.
    */
-  vector<tuple2> get_first_actions();
+  std::vector<tuple2> get_first_actions();
 
   /**
    * Allows board[i] to return board_map[i] (better readability).
@@ -83,7 +80,7 @@ public:
    * @param i index of board_map.
    * @return board_map[i].
    */
-  vector<int> &operator[](int i);
+  std::vector<int> &operator[](int i);
 
   /**
    * Applies a movement (color) and returns every possible movement i where
@@ -99,6 +96,6 @@ public:
    * @return available actions (colors) after move was made, where first is the
    * area that the color yields and second is the color itself.
    */
-  vector<tuple2> apply_color(int color);
+  std::vector<tuple2> apply_color(int color);
 
 };

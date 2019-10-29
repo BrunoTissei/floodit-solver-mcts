@@ -16,8 +16,6 @@
 #include "board.h"
 #include "graph.h"
 
-using namespace std;
-
 class Builder {
 
 private:
@@ -25,9 +23,9 @@ private:
   Board *board;
   int num_groups;
 
-  vector<tuple2> groups;
-  set<tuple2> neighbors;
-  map<int, set<tuple2>> nmap;
+  std::vector<tuple2> groups;
+  std::set<tuple2> neighbors;
+  std::map<int, std::set<tuple2>> nmap;
 
   /**
    * Recusively goes through every tile in a group, while populating the vector
