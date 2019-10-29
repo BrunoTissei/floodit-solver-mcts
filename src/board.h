@@ -19,7 +19,6 @@
 class Board {
 
 private:
-
   int turn;
   Graph graph;
   bool first_move;
@@ -29,13 +28,11 @@ private:
   const std::vector<int> full_dy = {1, 0, -1,  0, 1, -1, -1,  1};
 
 public:
-
   int n, m, c;
 
   std::vector<int> dx, dy;
   std::vector<std::queue<int>> frontier;
   matrix<int> group_map, board_map;
-
 
   /**
    * Initializes board and define neighborhood.
@@ -97,5 +94,4 @@ public:
    * area that the color yields and second is the color itself.
    */
   std::vector<tuple2> apply_color(int color);
-
 };

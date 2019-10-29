@@ -12,8 +12,6 @@
 #include <utility>
 #include <chrono>
 
-#define ende '\n'
-
 template <class T>
 using matrix = std::vector<std::vector<T>>;
 

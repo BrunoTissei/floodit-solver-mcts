@@ -19,7 +19,6 @@
 class Builder {
 
 private:
-
   Board *board;
   int num_groups;
 
@@ -39,7 +38,6 @@ private:
   int get_group(int x, int y, int color);
 
 public:
-
   /**
    * Initializes builder.
    *
@@ -55,5 +53,4 @@ public:
    * the same color in the board.
    */
   Graph build_graph();
-
 };

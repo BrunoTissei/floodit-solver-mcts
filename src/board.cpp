@@ -8,7 +8,6 @@
 
 #include "board.h"
 
-
 // Initializes board and define neighborhood.
 Board::Board(int n, int m, int c, bool all_neighbors) : n(n), m(m), c(c) {
   board_map = matrix<int>(n, std::vector<int>(m));
@@ -31,13 +30,11 @@ Board::Board(int n, int m, int c, bool all_neighbors) : n(n), m(m), c(c) {
   }
 }
 
-
 // Associates graph built by Builder to board (the graph is a different
 // representation, other than a matrix, to the same board).
 void Board::set_graph(Graph graph) {
   this->graph = graph;
 }
-
 
 // Reads only the board itself (matrix of colors).
 void Board::read_input() {
@@ -45,7 +42,6 @@ void Board::read_input() {
     for (auto &j : i)
       std::cin >> j;
 }
-
 
 // Resets board's internal state.
 void Board::reset() {
@@ -71,7 +67,6 @@ void Board::reset() {
   }
 }
 
-
 // Gets possible colors to choose as the first move (i.e. colors adjacent to
 // the corner tile).
 std::vector<tuple2> Board::get_first_actions() {
@@ -85,12 +80,10 @@ std::vector<tuple2> Board::get_first_actions() {
   return actions;
 }
 
-
 // Allows board[i] to return board_map[i] (better readability).
 std::vector<int> & Board::operator[](int i) {
   return board_map[i];
 }
-
 
 // Applies a movement (color) and returns every possible movement i where
 // i.second is the movement itself (color) and i.first is the area that the
