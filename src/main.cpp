@@ -17,11 +17,9 @@
 class Solver {
 
 private:
-
   int n, m, c;
 
 public:
-
   void read_input() {
     std::cin >> n >> m >> c;
   }
@@ -43,12 +41,11 @@ public:
     std::vector<int> solution = mcts.run(35000, 4, 53);
 
     // Print solution
-    std::cout << solution.size() << ende;
+    std::cout << solution.size() << std::endl;
     for (auto i : solution)
       std::cout << i << " ";
-    std::cout << ende;
+    std::cout << std::endl;
   }
-
 };
 
 

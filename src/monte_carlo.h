@@ -20,15 +20,12 @@
 class State {
 
 private:
-
   Board *board;
   int num_moves;
 
 public:
-
   std::vector<int> backup;
   std::vector<tuple2> actions;
-
 
   State(Board *board);
 
@@ -56,14 +53,12 @@ public:
    * @return score given by (bound - num_moves) (i.e. inverse of num_moves).
    */
   double get_result(double bound);
-
 };
 
 
 class Node {
 
 private:
-
   double C, D;
   double points, visits, sq_points;
 
@@ -76,13 +71,11 @@ private:
   double calc_uct(const Node *child);
 
 public:
-
   tuple2 move;
 
   Node *parent;
   std::vector<Node*> children;
   std::vector<tuple2> remaining_actions;
-
 
   /**
    * Creates new node and builds list of untried moves.
@@ -117,19 +110,16 @@ public:
    * @param result score obtained in rollout.
    */
   void update(double result);
-
 };
 
 
 class MonteCarloTS {
 
 private:
-
   Board *board;
   double moves_upper;
 
 public:
-
   /**
    * Specifies random seed and associates board to be used by state.
    *
@@ -137,7 +127,6 @@ public:
    * @param board board used in the puzzle.
    */
   MonteCarloTS(int seed, Board *board);
-
 
   /**
    * Applies Monte Carlo Tree Search.
@@ -147,5 +136,4 @@ public:
    * @return result (i.e. sequence of movements to solve game).
    */
   std::vector<int> run(int num_iter, double C, double D);
-
 };

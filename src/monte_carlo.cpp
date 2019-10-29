@@ -8,11 +8,9 @@
 
 #include "monte_carlo.h"
 
-
 State::State(Board *board) : board(board) {
   reset();
 }
-
 
 // Applies movement.
 void State::apply_move(int color) {
@@ -20,7 +18,6 @@ void State::apply_move(int color) {
   backup.push_back(color);
   actions = board->apply_color(color);
 }
-
 
 // Applies random movements until board is complete.
 void State::rollout() {
@@ -58,7 +55,6 @@ void State::reset() {
   actions = board->get_first_actions();
 }
 
-
 // Gets score obtained by sequence of movements taken by state.
 double State::get_result(double bound) {
 
@@ -67,7 +63,6 @@ double State::get_result(double bound) {
   // of movements given by a greater score
   return (bound - num_moves);
 }
-
 
 
 // Creates new node and builds list of untried moves.
@@ -81,11 +76,9 @@ Node::Node(tuple2 move, const State &state, Node *parent, double C, double D) {
   this->remaining_actions = state.actions;
 }
 
-
 // Creates new node, adds it to children vector and returns it.
 Node *Node::add_child(int move_pos, State &state) {
   Node *n = new Node(remaining_actions[move_pos], state, this, C, D);
-
 
   // Fast vector element erasing, since order does not matter
   swap(remaining_actions[move_pos],
@@ -96,7 +89,6 @@ Node *Node::add_child(int move_pos, State &state) {
   children.push_back(n);
   return n;
 }
-
 
 // Calculates UCT (Upper Confidence Bound 1 applied to trees) of a child node.
 double Node::calc_uct(const Node *child) {
@@ -113,7 +105,6 @@ double Node::calc_uct(const Node *child) {
   return fi + se + th;
 }
 
-
 // Gets child with the greatest UCT value.
 Node *Node::uct_child() {
   return *(max_element(children.begin(), children.end(),
@@ -122,7 +113,6 @@ Node *Node::uct_child() {
     }
   ));
 }
-
 
 // Updates node's statistics (visits, points and sum of squared points).
 void Node::update(double result) {
@@ -134,7 +124,6 @@ void Node::update(double result) {
 }
 
 
-
 // Specifies random seed and associates board to be used by state.
 MonteCarloTS::MonteCarloTS(int seed, Board *board) : board(board) {
   srand(seed);
@@ -143,7 +132,6 @@ MonteCarloTS::MonteCarloTS(int seed, Board *board) : board(board) {
   int N = std::max(board->n, board->m);
   this->moves_upper = (2*N + sqrt(2 * board->c) * N + board->c);
 }
-
 
 // Applies Monte Carlo Tree Search.
 std::vector<int> MonteCarloTS::run(int num_iter, double C, double D) {

@@ -46,11 +46,9 @@ struct vertex {
 class Graph {
 
 private:
-
   std::vector<vertex> vertices;
 
 public:
-
   Graph();
 
   ~Graph();
@@ -77,5 +75,4 @@ public:
    * @return vectices[i].
    */
   vertex &operator[](int i);
-
 };

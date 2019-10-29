@@ -8,12 +8,10 @@
 
 #include "builder.h"
 
-
 // Initializes builder.
 Builder::Builder(Board *board) : board(board) {
   num_groups = 1;
 }
-
 
 // Recusively goes through every tile in a group, while populating the vector
 // group with the coordinates of the found tiles and neighbors set with the
@@ -44,7 +42,6 @@ int Builder::get_group(int x, int y, int color) {
   // Return area computed so far
   return ans;
 }
-
 
 // Builds graph where each vertex is a group of tiles of the same color
 // in the initial board.
